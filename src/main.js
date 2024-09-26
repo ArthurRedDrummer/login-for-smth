@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import Popup from './components/Popup.vue'
-import Loader from './components/Loader.vue'
-import FormField from './components/partials/FormField.vue'
-import FormButton from './components/partials/FormButton.vue'
+import App from './App'
+import Popup from '@components/Popup'
+import Loader from '@components/Loader'
+import FormField from '@components/partials/FormField'
+import FormButton from '@components/partials/FormButton'
 
 createApp(App)
   .component('popup', Popup)

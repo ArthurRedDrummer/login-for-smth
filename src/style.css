@@ -1,4 +1,4 @@
-@import 'assets/animation.css';
+@import '@styles/animation.css';
 
 @tailwind base;
 @tailwind components;

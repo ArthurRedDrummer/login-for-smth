@@ -9,9 +9,9 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import EmailForm from './components/EmailForm.vue'
-import CodeForm from './components/CodeForm.vue'
-import Welcome from './components/Welcome.vue';
+import EmailForm from '@components/EmailForm'
+import CodeForm from '@components/CodeForm'
+import Welcome from '@components/Welcome';
 
 const stage = ref(localStorage.getItem('trim-authorized') ? 'welcome' : 'login');
 
