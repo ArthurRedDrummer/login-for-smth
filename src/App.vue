@@ -1,10 +1,11 @@
 <template>
-  <transition name="page">
+  <login/>
+  <!-- <transition name="page">
     <popup v-if="!isAuthorized">
       <component v-if="stage !== 'loading'" :is="view[stage]" @next="changeStage" />
     </popup>
     <welcome v-else @exit="changeStage('login')" />
-  </transition>
+  </transition> -->
 </template>
 
 <script setup>
