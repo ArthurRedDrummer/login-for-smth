@@ -32,6 +32,7 @@ import Social from '@components/login/Social'
 const emit = defineEmits(['next']);
 const email = defineModel('email');
 const field = ref(null);
+const code = ref('');
 const error = ref('');
 const isError = ref(false);
 const isLoading = ref(false);
@@ -66,6 +67,10 @@ function validate() {
   return true;
 }
 
+function generateCode() {
+  return Math.floor(100000 + Math.random() * 900000);
+}
+
 async function submit() {
   field.value.blur();
   validate();
@@ -76,10 +81,15 @@ async function submit() {
 
   isLoading.value = true;
 
+  const code = generateCode();
+
+  alert(`Your code: ${code}`);
+
   return new Promise((resolve) => {
     setTimeout(() => {
       emit('next', {
-        stage: 'code'
+        stage: 'code',
+        code
       });
 
       resolve();

@@ -5,7 +5,7 @@
       <div class="box-polygon flex flex-col gap-8 items-center bg-black/30 h-[813px]">
         <h1 class="bg-logo w-logo h-logo bg-center bg-cover shrink-0" />
         <transition name="fade" mode="out-in">
-          <component :is="views[stage]" v-model:email="email" @next="next" />
+          <component :is="views[stage]" v-model:email="email" v-model:pin="pin" @next="next" />
         </transition>
       </div>
     </div>
@@ -15,12 +15,13 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import Email from '@components/login/Email'
 import PinCode from '@components/login/PinCode'
 import Support from '@components/login/Support'
 
 const stage = defineModel('stage');
+const pin = ref('');
 
 const views = {
   login: Email,
@@ -31,11 +32,7 @@ const email = ref(null);
 
 function next(params) {
   stage.value = params.stage;
-
-  if (params.hasOwnProperty('email')) {
-    email.value = params.email;
-  }
-
+  pin.value = params.code ?? '';
 }
 </script>
 
