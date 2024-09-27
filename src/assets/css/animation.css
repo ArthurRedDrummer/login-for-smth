@@ -1,11 +1,11 @@
-.page-enter-active {
-  transition: opacity 500ms ease 500ms;
+.fade-enter-active {
+  transition: opacity 300ms ease 300ms;
 }
-.page-leave-active {
-  transition: opacity 500ms ease;
+.fade-leave-active {
+  transition: opacity 300ms ease;
 }
 
-.page-enter-from,
-.page-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }

@@ -5,11 +5,23 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        tablet: {
+          max: '1023px'
+        },
+        mobile: {
+          max: '767px'
+        }
+      },
       colors: {
         'input': '#1B2631',
         'body': '#060301',
-        'gr-button-start': '#96D9FF66',
-        'gr-button-end': '#4BBFFF66'
+        'error-background': '#AD0000',
+        'error-text': '#FF3E3E',
+        'gr-button-default-start': '#96D9FF66',
+        'gr-button-default-end': '#4BBFFF66',
+        'gr-button-error-start': '#FD676766',
+        'gr-button-error-end': '#FF4B4B66'
       },
       height: {
         'logo': '100px'
