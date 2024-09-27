@@ -1,5 +1,6 @@
 @import '@styles/animation.css';
 @import '@styles/fonts';
+@import '@styles/background';
 
 @tailwind base;
 @tailwind components;

@@ -1,0 +1,3 @@
+.main-dark-background {
+  @apply bg-black bg-main-background bg-fixed bg-cover;
+}
