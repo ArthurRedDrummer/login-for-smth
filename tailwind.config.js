@@ -18,7 +18,6 @@ export default {
         'logo': '224px'
       },
       backgroundImage: {
-        'main-background': 'url(@images/background.jpg)',
         'logo': 'url(@images/logo.svg)',
         'vkontakte-icon': 'url(@images/vkontakte.svg)',
         'odnoklassniki-icon': 'url(@images/odnoklassniki.svg)',

@@ -1,3 +1,7 @@
 .main-dark-background {
-  @apply bg-black bg-main-background bg-fixed bg-cover;
+	background: rgba(6, 3, 1, 1);
+	background: radial-gradient(ellipse 100% 60% at 50% 20%, rgba(82, 194, 100, .2), rgba(82, 194, 100, 0) 60%),
+		radial-gradient(ellipse 100% 120% at 80% 60%, rgba(0, 115, 237, .2), rgba(82, 194, 100, 0) 70%),
+    radial-gradient(ellipse 100% 50% at 20% 80%, rgba(237, 43, 0, .2), rgba(0, 0, 0, 0) 80%),
+    radial-gradient(ellipse at center, rgba(6, 3, 1, 1), rgba(6, 3, 1, 1));
 }
