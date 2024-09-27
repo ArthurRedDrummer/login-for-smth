@@ -2,13 +2,11 @@
   <section class="font-golos text-white m-auto max-w-[480px] flex flex-col gap-10 items-center py-10">
 
     <div class="box-holder">
-      <div class="box-polygon flex flex-col gap-8 items-center bg-black/20 h-[813px]">
+      <div class="box-polygon flex flex-col gap-8 items-center bg-black/30 h-[813px]">
         <h1 class="bg-logo w-logo h-logo bg-center bg-cover" />
         <div class="flex flex-col gap-4 items-center">
           <h2 class="text-center text-[34px] leading-[30px] font-bold">Вход и регистрация</h2>
-          <p class="text-center text-[18px] leading-[21.6px]">Получите пароль по&nbsp;электронной почте, или
-            авторизуйтесь
-            через сторонний сервис</p>
+          <p class="text-center text-[18px] leading-[21.6px]">Получите пароль по&nbsp;электронной почте, или авторизуйтесь через сторонний сервис</p>
         </div>
         <form class="flex flex-col w-full gap-[2px]">
           <input
@@ -69,7 +67,7 @@ const socialList = [
 }
 .box-holder {
   position: relative;
-  transform-style: preserve-3d;
+  filter: drop-shadow(0.7rem 1rem 0.5rem rgba(0, 57, 134, .2)) drop-shadow(-0.7rem 1rem 0.5rem rgba(181, 0, 132, .2));
 }
 .box-holder::after {
   position: absolute;
