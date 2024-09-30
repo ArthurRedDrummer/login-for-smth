@@ -8,9 +8,11 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useUsersStore } from '@stores/users';
 import Welcome from './components/Welcome.vue';
 
-const isAuthorized = localStorage.getItem('smotrim-user');
+const usersStore = useUsersStore();
+const isAuthorized = usersStore.current;
 
 const stage = ref(isAuthorized ? 'welcome' : 'login');
 </script>

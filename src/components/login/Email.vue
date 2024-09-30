@@ -34,18 +34,15 @@ function validate() {
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   error.value = '';
-  isError.value = false;
 
   if (!email.value) {
     error.value = 'Это поле обязательно для заполнения';
-    isError.value = true;
 
     return false;
   }
 
   if (!re.test(email.value)) {
     error.value = 'Неверный адрес электронной почты';
-    isError.value = true;
 
     return false;
   }
@@ -72,16 +69,10 @@ async function submit() {
 
   alert(`Your code: ${code}`);
 
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      emit('next', {
-        stage: 'code',
-        code
-      });
-
-      resolve();
-    }, 1000)
-  })
+  emit('next', {
+    stage: 'code',
+    code
+  });
 }
 
 onMounted(() => {
