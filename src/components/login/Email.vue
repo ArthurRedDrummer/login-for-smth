@@ -6,9 +6,9 @@
       <form-field v-model:value="email" v-model:error="error" type="email" placeholder="Адрес эл. почты"
         :is-disabled="isLoading" ref="emailField" />
       <form-button :is-loading="isLoading" :is-error="isError" type="submit" title="Получить пароль" />
-      <transition name="fade">
-        <div v-if="isError" class="text-error-text text-center text-sm mt-2" v-text="error" />
-      </transition>
+      <div class="text-error-text text-center text-sm mt-2 h-5" :class="{
+        'opacity-0': !isError
+      }" v-text="error" />
     </form>
     <social :is-loading="isLoading" />
   </div>

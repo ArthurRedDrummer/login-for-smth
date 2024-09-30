@@ -5,9 +5,9 @@
       <form-field v-model:value="code" v-model:error="error" type="number" placeholder="Код из письма"
         ref="codeField" />
       <form-button :is-error="isError" type="submit" title="Подтвердить" />
-      <transition name="fade">
-        <div v-if="isError" class="text-error-text text-center text-sm mt-2" v-text="error" />
-      </transition>
+      <div class="text-error-text text-center text-sm mt-2 h-5" :class="{
+        'opacity-0': !isError
+      }" v-text="error" />
     </form>
     <div class="mt-auto mb-0 w-full">
       <input class="px-6 py-4 box-border w-full bg-white/20 rounded-2xl cursor-pointer" type="button"
