@@ -3,17 +3,8 @@
     <login-header title="Рады видеть<br>вас снова" :anons="`Введите код или перейдите по&nbsp;ссылке из&nbsp;письма,
         которое мы&nbsp;отправили на&nbsp;адрес ` + email" />
     <form class="flex flex-col w-full gap-[2px]" @submit.prevent="submit">
-      <input
-        class="w-full outline-none bg-input/50 box-border py-[18px] px-6 border border-white/30 h-14 rounded-t-xl leading-4 font-mono"
-        :class="isError
-          ? 'border-error-background/30 bg-error-background/20 text-error-text'
-          : 'border-white/30 bg-input/50'" type="number" placeholder="Код из письма" v-model="code" ref="field"
-        @focus="clear" />
-      <input
-        class="w-full bg-gradient-to-r from-gr-button-default-start to-gr-button-default-end box-border px-6 h-14 rounded-b-xl cursor-pointer"
-        :class="isError
-          ? 'from-gr-button-error-start to-gr-button-error-end text-error-text'
-          : 'from-gr-button-default-start to-gr-button-default-end text-white'" type="submit" value="Подтвердить" />
+      <form-field v-model:value="code" v-model:error="error" type="number" placeholder="Код из письма" ref="codeField" />
+      <form-button :is-error="isError" type="submit" title="Подтвердить" />
       <transition name="fade">
         <div v-if="isError" class="text-error-text text-center text-sm mt-2" v-text="error" />
       </transition>
@@ -26,17 +17,20 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import FormField from '@components/login/partials/Field'
+import FormButton from '@components/login/partials/Button'
 import LoginHeader from '@components/login/Header'
 
 const email = defineModel('email');
 const pin = defineModel('pin');
 const emit = defineEmits(['next']);
 
+const codeField = ref(null);
 const code = ref('');
-const field = ref(null);
 const error = ref('');
-const isError = ref(false);
+
+const isError = computed(() => error.value !== '');
 
 function back() {
   emit('next', {
@@ -44,18 +38,10 @@ function back() {
   })
 }
 
-function clear() {
-  error.value = '';
-  isError.value = false;
-}
-
 function validate() {
 
   error.value = '';
   isError.value = false;
-
-  console.log(code.value);
-
 
   if (!code.value) {
     error.value = 'Поле не может быть пустым';
@@ -82,7 +68,7 @@ function validate() {
 }
 
 async function submit() {
-  field.value.blur();
+  codeField.value?.field?.blur();
   validate();
 
   if (isError.value) {
@@ -98,8 +84,6 @@ async function submit() {
 }
 
 onMounted(() => {
-  field.value.focus();
-  console.log(pin.value);
-
+  codeField.value?.field?.focus();
 })
 </script>
